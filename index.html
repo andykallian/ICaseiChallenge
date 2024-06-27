@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeos do YouTube</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Menu lateral -->
+        <div id="sidebar">
+            <button id="videos-button">VÍDEOS</button>
+            <button id="favorites-button">FAVORITOS <span id="favorites-count">0</span></button>
+        </div>
+        
+        <!-- Seção de Vídeos -->
+        <div id="videos-section">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Pesquisar" />
+                <button id="search-button">🔍</button>
+            </div>
+            <div id="videos-container" class="video-container"></div>
+            <button id="load-more">Carregar mais vídeos</button>
+        </div>
+
+        <!-- Seção de Favoritos -->
+        <div id="favorites-section" style="display: none;">
+            <h2>Vídeos Favoritos</h2>
+            <div id="favorites-container" class="video-container"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
