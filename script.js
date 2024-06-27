@@ -2,8 +2,8 @@ const apiKey = 'AIzaSyB2n9R1N7itrXNbwjcRipnZp0M0bTVjMHs'; // Substitua com sua c
 
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
-const videosContainer = document.getElementById('videos-container');
-const favoritesContainer = document.getElementById('favorites-container');
+const videosContainer = document.getElementById('videos-section');
+const favoritesContainer = document.getElementById('favorites-section');
 const favoritesButton = document.getElementById('favorites-button');
 const favoritesCount = document.querySelector('#favorites-button span');
 const loadMoreButton = document.getElementById('load-more');
@@ -40,26 +40,25 @@ document.getElementById('videos-button').addEventListener('click', () => {
 // Mostrar seção de favoritos e esconder de vídeos
 function showFavoritesSection() {
     document.getElementById('videos-section').style.display = 'none';
-    document.getElementById('favorites-section').style.display = 'block';
+    document.getElementById('favorites-section').style.display = 'grid';
 }
 
 // Mostrar seção de vídeos e esconder de favoritos
 function showVideosSection() {
-    document.getElementById('videos-section').style.display = 'block';
+    document.getElementById('videos-section').style.display = 'grid';
     document.getElementById('favorites-section').style.display = 'none';
 }
 
 // Adicionar ou remover vídeo dos favoritos
 function toggleFavorite(videoId) {
-  const index = favorites.indexOf(videoId);
-  if (index === -1) {
-      favorites.push(videoId);
-  } else {
-      favorites.splice(index, 1);
-  }
-  updateFavoritesUI();
+    const index = favorites.indexOf(videoId);
+    if (index === -1) {
+        favorites.push(videoId);
+    } else {
+        favorites.splice(index, 1);
+    }
+    updateFavoritesUI();
 }
-
 
 // Verificar se um vídeo é favorito
 function isFavorite(videoId) {

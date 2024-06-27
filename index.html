@@ -14,20 +14,15 @@
             <button id="favorites-button">FAVORITOS <span id="favorites-count">0</span></button>
         </div>
         
-        <!-- Seção de Vídeos -->
-        <div id="videos-section">
+        <!-- Seção de Vídeos e Favoritos -->
+        <div id="content-section">
             <div class="search-container">
                 <input type="text" id="search-input" placeholder="Pesquisar" />
                 <button id="search-button">🔍</button>
             </div>
-            <div id="videos-container" class="video-container"></div>
+            <div id="videos-section" class="video-container"></div>
+            <div id="favorites-section" class="video-container" style="display: none;"></div>
             <button id="load-more">Carregar mais vídeos</button>
-        </div>
-
-        <!-- Seção de Favoritos -->
-        <div id="favorites-section" style="display: none;">
-            <h2>Vídeos Favoritos</h2>
-            <div id="favorites-container" class="video-container"></div>
         </div>
     </div>
     <script src="script.js"></script>
