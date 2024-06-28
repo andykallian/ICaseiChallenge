@@ -1,4 +1,4 @@
-const apiKey = 'AIzaSyB2n9R1N7itrXNbwjcRipnZp0M0bTVjMHs'; // Substitua com sua chave da API do YouTube
+const apiKey = 'AIzaSyAL1rNirCOTwC5znh-Zg-5TwCeYPC8u1hY'; // api do youtube v3
 
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
@@ -12,6 +12,12 @@ let nextPageToken = '';
 let currentSearchTerm = '';
 let favorites = [];
 
+// Chamar fetchVideos quando a página carregar
+document.addEventListener('DOMContentLoaded', async () => {
+    currentSearchTerm = 'programação'; // Termo de busca inicial
+    await fetchVideos(currentSearchTerm);
+});
+
 // Evento de busca ao clicar no botão
 searchButton.addEventListener('click', async () => {
     const searchTerm = searchInput.value.trim();
@@ -20,6 +26,7 @@ searchButton.addEventListener('click', async () => {
     currentSearchTerm = searchTerm;
     clearVideoContainers();
     await fetchVideos(searchTerm);
+    searchInput.value = ''; // Limpar a barra de busca após a busca
 });
 
 // Evento de carregar mais vídeos
@@ -41,12 +48,14 @@ document.getElementById('videos-button').addEventListener('click', () => {
 function showFavoritesSection() {
     document.getElementById('videos-section').style.display = 'none';
     document.getElementById('favorites-section').style.display = 'grid';
+    loadMoreButton.style.display = 'none'; // Ocultar botão "Carregar mais vídeos" na seção de favoritos
 }
 
 // Mostrar seção de vídeos e esconder de favoritos
 function showVideosSection() {
     document.getElementById('videos-section').style.display = 'grid';
     document.getElementById('favorites-section').style.display = 'none';
+    loadMoreButton.style.display = 'block'; // Mostrar botão "Carregar mais vídeos" na seção de vídeos
 }
 
 // Adicionar ou remover vídeo dos favoritos

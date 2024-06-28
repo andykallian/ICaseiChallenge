@@ -5,7 +5,6 @@ body {
 }
 
 html, body {
-  height: 100%;
   box-sizing: border-box;
 }
 
@@ -16,8 +15,6 @@ html, body {
 }
 
 #sidebar {
-  width: 200px;
-  height: 100%;
   background-color: #f8f8f8;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -52,7 +49,7 @@ html, body {
 }
 
 #search-input {
-  width: calc(26% - 50px);
+  width: 23%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -93,7 +90,7 @@ html, body {
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
-  margin-top: 45px;
+  margin-bottom: 15px;
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
@@ -103,7 +100,6 @@ html, body {
   height: 40px;
   line-height: 20px;
   list-style: none;
-  margin: 0;
   outline: none;
   padding: 10px 16px;
   position: relative;
@@ -143,18 +139,34 @@ html, body {
   .video-container {
     grid-template-columns: repeat(3, 1fr); /* 3 colunas por linha */
   }
-  .video-item {
-    padding-bottom: calc(100% * (4 / 3)); /* Aspect ratio 3:4 */
+  #search-input {
+    width: 30%;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  #sidebar {
+  body{
+    flex-direction: column;
+    display: flex;
     width: 100%;
   }
+
+  #sidebar {
+    width: 100%;
+    padding-inline: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+
+  #sidebar button{
+    width: 98%;
+  }
+
   #app {
     flex-direction: column;
     height: auto;
+    width: 100%;
   }
   #search-input {
     width: 98%;
@@ -162,17 +174,24 @@ html, body {
   .video-container {
     grid-template-columns: repeat(2, 1fr); /* 2 colunas por linha */
   }
-  .video-item {
-    padding-bottom: calc(100% * (2 / 3)); /* Aspect ratio 3:2 */
-  }
 }
+
 
 @media (max-width: 767px) {
   #sidebar {
     width: 100%;
+    padding-inline: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #search-input {
+    width: 96%;
   }
   #search-input {
-    width: 97%;
+   
   }
   #app {
     flex-direction: column;
@@ -181,13 +200,5 @@ html, body {
   .video-container {
     grid-template-columns: repeat(1, 1fr); /* 1 coluna por linha */
   }
-  .video-item {
-    padding-bottom: calc(100% * 12); /* Aspect ratio 12:1 */
-  }
 }
 
-@media (min-width: 360px) and (min-height: 740px) {
-  #search-input {
-    width: 96%;
-  }
-}
