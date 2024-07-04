@@ -24,7 +24,7 @@ Antes de começar, você vai precisar ter o seguinte instalado na sua máquina:
 
 Primeiro, clone o repositório para sua máquina local:
 
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/andykallian/ICaseiChallenge
 
 
 

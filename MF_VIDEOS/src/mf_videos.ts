@@ -119,13 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		try {
 			const response = await fetch(`/videos/api/search?query=${encodeURIComponent(query)}`);
 			const data = await response.json();
-
-			// Verificação adicionada para garantir que `data.items` seja um array
-			if (Array.isArray(data.items)) {
-				displayVideos(data.items, true);
-			} else {
-				console.error('Unexpected response format:', data);
-			}
+			displayVideos(data.items, true);
 		} catch (error) {
 			console.error('Error fetching search results:', error);
 		}
